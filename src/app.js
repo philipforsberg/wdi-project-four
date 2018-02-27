@@ -1,5 +1,10 @@
 import React    from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+
+import Login       from './components/auth/Login';
+import Register    from './components/auth/Register';
+import Navbar from './components/utility/Navbar';
 
 import './scss/style.scss';
 
@@ -7,7 +12,19 @@ class App extends React.Component {
 
   render() {
     return (
-      <h1>WDI Project 4</h1>
+      <Router>
+        <div className="container">
+          <header>
+            <h1><Link to="/">What on earth am I gonna create</Link></h1>
+            <Navbar />
+          </header>
+          <main>
+            <h1>WDI Project 4</h1>
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+          </main>
+        </div>
+      </Router>
     );
   }
 }
