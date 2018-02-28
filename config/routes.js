@@ -7,6 +7,9 @@ const books = require('../controllers/books');
 router.route('/books')
   .get(books.index);
 
+router.route('/books/:id')
+  .get(books.show);
+
 router.route('/register')
   .post(auth.register);
 
