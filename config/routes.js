@@ -1,8 +1,11 @@
 const router = require('express').Router();
 const auth  = require('../controllers/auth');
+const books = require('../controllers/books');
 // const secureRoute = require('../lib/secureRoute');
 
 
+router.route('/books')
+  .get(books.index);
 
 router.route('/register')
   .post(auth.register);

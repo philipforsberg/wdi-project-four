@@ -20,7 +20,6 @@ class App extends React.Component {
             <Navbar />
           </header>
           <main>
-            <h1>WDI Project 4</h1>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route exact path="/" component={BooksIndex} />
