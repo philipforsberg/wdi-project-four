@@ -18,7 +18,7 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <header>
-            <h1><Link to="/">What on earth am I gonna create</Link></h1>
+            <h1><Link to="/">Book World</Link></h1>
             <Navbar />
           </header>
           <main>
