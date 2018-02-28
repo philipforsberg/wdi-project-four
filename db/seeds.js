@@ -1,12 +1,13 @@
 const mongoose   = require('mongoose');
 mongoose.Promise = require('bluebird');
 
-const { dbURI } = require('../config/environment');
+const { db, env } = require('../config/environment');
 const Book      = require('../models/book');
+
 
 const bookData = [{
   title: 'To Kill a Mockingbird',
-  image: 'https://media.glamour.com/photos/56e1f3c462b398fa64cbd304/master/w_1280,c_limit/entertainment-2016-02-18-main.jpg',
+  image: 'https://2982-presscdn-29-70-pagely.netdna-ssl.com/wp-content/uploads/2015/07/To-Kill-a-Mockingbird-1st-ed.gif',
   author: 'Harper Lee',
   genre: 'Southern Gothic'
 }, {
@@ -21,8 +22,8 @@ const bookData = [{
   genre: 'Fantasy'
 }];
 
-mongoose.connect(dbURI, { useMongoClient: true })
-  .then(db => db.dropDatabase())
+mongoose.connect(db[env])
+  .then(() => Book.remove())
   .then(() => Book.create(bookData))
   .then(books => console.log(`${books.length} books created!`))
   .catch(err => console.log(err))

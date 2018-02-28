@@ -3,7 +3,7 @@ const Book = require('../models/book');
 function booksIndex(req, res, next) {
   Book
     .find()
-    .exex()
+    .exec()
     .then(books => res.json(books))
     .catch(next);
 }

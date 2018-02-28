@@ -1,5 +1,5 @@
 {
-  "name": "book world",
+  "name": "react-webpack-setup",
   "version": "1.0.0",
   "description": "A React and Webpack setup for WDI",
   "main": "index.js",
@@ -17,6 +17,7 @@
     "axios": "^0.16.2",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.1",
+    "bootstrap-css-only": "^4.0.0",
     "express": "^4.15.4",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^5.0.7",
