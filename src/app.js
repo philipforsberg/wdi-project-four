@@ -2,6 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
+import BooksIndex from './components/books/BooksIndex';
 import Login       from './components/auth/Login';
 import Register    from './components/auth/Register';
 import Navbar from './components/utility/Navbar';
@@ -22,6 +23,7 @@ class App extends React.Component {
             <h1>WDI Project 4</h1>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route exact path="/" component={BooksIndex} />
           </main>
         </div>
       </Router>
