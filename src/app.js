@@ -8,6 +8,7 @@ import Register    from './components/auth/Register';
 import Navbar from './components/utility/Navbar';
 
 import 'bootstrap-css-only';
+import 'react-bootstrap';
 import './scss/style.scss';
 
 class App extends React.Component {
