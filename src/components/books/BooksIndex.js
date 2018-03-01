@@ -19,7 +19,7 @@ class BooksIndex extends React.Component {
         <div className="row">
           {this.state.books.map(book => {
             return(
-              <div key={book.id} className="book-box col-md-4 col-sm-6 col-xs-12">
+              <div key={book.id} className="col-xs-12 col-sm-6 col-md-4">
                 <Link to={`/books/${book.id}`}>
                   <img src={book.image} className="img-responsive" />
                 </Link>

@@ -51,10 +51,12 @@ User
       genre: 'Fantasy',
       reviews: [{
         description: 'A magical tale about an adventurous hobbit',
+        bookrating: 4,
         content: 'This is a true masterpiece, written by mr. Tolkien. From start to finish you can never really put the book away, being drawn into the fantastic world created for us to dream away and join in on the fun, struggles and all other experiences of mr. Bilbo and his companions. If you still have not picked up and read this book, I highly recommend doing it now, as it will not disappoint!',
         createdBy: users[0]
       }, {
         description: 'A magical tale about an adventurous hobbit',
+        bookrating: 5,
         content: 'This is a true masterpiece, written by mr. Tolkien. From start to finish you can never really put the book away, being drawn into the fantastic world created for us to dream away and join in on the fun, struggles and all other experiences of mr. Bilbo and his companions. If you still have not picked up and read this book, I highly recommend doing it now, as it will not disappoint!',
         createdBy: users[1]
       }]
