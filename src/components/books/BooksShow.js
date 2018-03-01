@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import { Panel } from 'react-bootstrap';
 
 
 class BooksShow extends React.Component {
@@ -41,6 +42,25 @@ class BooksShow extends React.Component {
               </div>
             );
           })}
+        </div>
+        <div>
+          <p>You can also make the Panel heading toggle the collapse.</p>
+          <Panel>
+            <Panel.Heading>
+              <Panel.Title toggle>
+                Title that functions as a collapse toggle
+              </Panel.Title>
+            </Panel.Heading>
+
+            <Panel.Collapse>
+              <Panel.Body>
+                Anim pariatur cliche reprehenderit, enim eiusmod high life
+                accusamus terry richardson ad squid. Nihil anim keffiyeh
+                helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                ea proident.
+              </Panel.Body>
+            </Panel.Collapse>
+          </Panel>
         </div>
       </div>
     );
