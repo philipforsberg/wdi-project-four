@@ -2,9 +2,7 @@ import React    from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
-import BooksIndex from './components/books/BooksIndex';
-import BooksShow from './components/books/BooksShow';
-import BooksNew from './components/books/BooksNew';
+import BooksRoutes from './components/books/BooksRoutes';
 import Login       from './components/auth/Login';
 import Register    from './components/auth/Register';
 import Navbar from './components/utility/Navbar';
@@ -25,9 +23,7 @@ class App extends React.Component {
           <main>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Route exact path="/" component={BooksIndex} />
-            <Route path="/books/new" component={BooksNew} />
-            <Route path="/books/:id" component={BooksShow} />
+            <BooksRoutes />
           </main>
         </div>
       </Router>

@@ -5,10 +5,15 @@
 .book-box {
   height: 150px;
   width: 100px;
+  margin: 10px 0 10px 0;
   img {
     max-width: 100%;
     max-height: 100%;
     padding: 4px;
     border-radius: 5px;
   }
+}
+
+.showpage {
+  margin: 25px auto 10px auto;
 }

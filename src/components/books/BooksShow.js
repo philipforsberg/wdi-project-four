@@ -18,7 +18,7 @@ class BooksShow extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="book-box col-md-6">
+        <div className="showpage col-md-6">
           <img src={this.state.book.image} className="img-responsive" />
           <p>Have you read this book? <Link to={`/books/${this.state.book.id}`}>Leave a review to tell others what you think!</Link></p>
         </div>
