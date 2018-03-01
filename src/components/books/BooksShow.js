@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 
 class BooksShow extends React.Component {
   state = {
-    book: {}
+    book: {
+      reviews: []
+    }
   }
 
   componentWillMount() {
@@ -15,7 +17,9 @@ class BooksShow extends React.Component {
       .catch(err => console.log(err));
   }
 
+
   render() {
+    console.log(this.state.book.reviews);
     return (
       <div className="row">
         <div className="showpage col-md-6">
@@ -27,6 +31,17 @@ class BooksShow extends React.Component {
           <h3><em>Written by {this.state.book.author}</em></h3>
           <h4>First Published: {this.state.book.publishedyear}</h4>
           <h4>{this.state.book.genre}</h4>
+        </div>
+        <div className="col-md-12 is-multiline">
+          {this.state.book.reviews.map(review => {
+            return(
+              <div key={review._id} className="col-md-5">
+                <h3><strong>{review.description}</strong></h3>
+                <p>{review.content}</p>
+                <p><em>Written by: {review.createdBy}</em></p>
+              </div>
+            );
+          })}
         </div>
       </div>
     );

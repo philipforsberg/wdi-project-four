@@ -48,7 +48,16 @@ User
       image: 'http://d1vzko4h6qahek.cloudfront.net/images/2/books/large/HOI2.jpg',
       author: 'J. R. R. Tolkien',
       publishedyear: 1937,
-      genre: 'Fantasy'
+      genre: 'Fantasy',
+      reviews: [{
+        description: 'A magical tale about an adventurous hobbit',
+        content: 'This is a true masterpiece, written by mr. Tolkien. From start to finish you can never really put the book away, being drawn into the fantastic world created for us to dream away and join in on the fun, struggles and all other experiences of mr. Bilbo and his companions. If you still have not picked up and read this book, I highly recommend doing it now, as it will not disappoint!',
+        createdBy: users[0]
+      }, {
+        description: 'A magical tale about an adventurous hobbit',
+        content: 'This is a true masterpiece, written by mr. Tolkien. From start to finish you can never really put the book away, being drawn into the fantastic world created for us to dream away and join in on the fun, struggles and all other experiences of mr. Bilbo and his companions. If you still have not picked up and read this book, I highly recommend doing it now, as it will not disappoint!',
+        createdBy: users[1]
+      }]
     }]);
   })
   .then((books) => {
