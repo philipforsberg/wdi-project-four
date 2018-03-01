@@ -15,18 +15,18 @@ User
   .create([{
     username: 'Sabrina',
     email: 'sabrina@sabrina.sabrina',
-    password: 'password',
-    passwordConfirmation: 'password'
+    password: 'sabrina',
+    passwordConfirmation: 'sabrina'
   }, {
     username: 'Robert',
     email: 'robert@robert.robert',
-    password: 'password',
-    passwordConfirmation: 'password'
+    password: 'robert',
+    passwordConfirmation: 'robert'
   }, {
     username: 'James',
     email: 'james@james.james',
-    password: 'password',
-    passwordConfirmation: 'password'
+    password: 'james',
+    passwordConfirmation: 'james'
   }])
   .then((users) => {
     console.log(`${users.length} users created!`);
