@@ -12,15 +12,16 @@ const mongoose = require('mongoose');
 // };
 
 const reviewSchema = mongoose.Schema({
+  description: { type: String, required: true },
   content: { type: String, required: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 }, {
   timestamps: true
 });
 
-reviewSchema.methods.belongsTo = function commentBelongsTo(user) {
-  return this.createdBy.id === user.id;
-};
+// reviewSchema.methods.belongsTo = function reviewBelongsTo(user) {
+//   return this.createdBy.id === user.id;
+// };
 
 const bookSchema = mongoose.Schema({
   title: { type: String, required: true },

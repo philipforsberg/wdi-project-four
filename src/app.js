@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 import BooksIndex from './components/books/BooksIndex';
 import BooksShow from './components/books/BooksShow';
+import BooksNew from './components/books/BooksNew';
 import Login       from './components/auth/Login';
 import Register    from './components/auth/Register';
 import Navbar from './components/utility/Navbar';
@@ -25,7 +26,8 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route exact path="/" component={BooksIndex} />
-            <Route exact path="/books/:id" component={BooksShow} />
+            <Route path="/books/new" component={BooksNew} />
+            <Route path="/books/:id" component={BooksShow} />
           </main>
         </div>
       </Router>

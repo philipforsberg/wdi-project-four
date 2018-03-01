@@ -8,6 +8,15 @@ function booksIndex(req, res, next) {
     .catch(next);
 }
 
+function booksCreate(req, res, next) {
+  if(req.file) req.body.image = req.file.filename;
+
+  Book
+    .create(req.body)
+    .then(book => res.status(201).json(book))
+    .catch(next);
+}
+
 function booksShow(req, res, next) {
   Book
     .findById(req.params.id)
@@ -21,5 +30,6 @@ function booksShow(req, res, next) {
 
 module.exports = {
   index: booksIndex,
+  create: booksCreate,
   show: booksShow
 };

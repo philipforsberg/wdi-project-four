@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const auth  = require('../controllers/auth');
 const books = require('../controllers/books');
-// const secureRoute = require('../lib/secureRoute');
+const secureRoute = require('../lib/secureRoute');
 
 
 router.route('/books')
-  .get(books.index);
+  .get(books.index)
+  .post(secureRoute, books.create);
 
 router.route('/books/:id')
   .get(books.show);

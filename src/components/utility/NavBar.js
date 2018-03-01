@@ -12,6 +12,8 @@ const Navbar = ({ history }) => {
 
   return(
     <nav>
+      { Auth.isAuthenticated() && <Link to="/books/new" className="btn btn-primary">Add Book</Link>}
+      {' '}
       { !Auth.isAuthenticated() && <Link to="/login" className="btn btn-success">Login</Link>}
       {' '}
       { !Auth.isAuthenticated() && <Link to="/register" className="btn btn-primary">Register</Link> }
