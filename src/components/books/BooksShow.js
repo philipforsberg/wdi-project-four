@@ -23,8 +23,9 @@ class BooksShow extends React.Component {
           <p>Have you read this book? <Link to={`/books/${this.state.book.id}`}>Leave a review to tell others what you think!</Link></p>
         </div>
         <div className="col-md-6">
-          <h3>{this.state.book.title}</h3>
-          <h4>{this.state.book.author}</h4>
+          <h2><strong>{this.state.book.title}</strong></h2>
+          <h3><em>Written by {this.state.book.author}</em></h3>
+          <h4>First Published: {this.state.book.publishedyear}</h4>
           <h4>{this.state.book.genre}</h4>
         </div>
       </div>

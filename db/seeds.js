@@ -21,7 +21,7 @@ const bookData = [{
   title: 'The Hobbit',
   image: 'http://d1vzko4h6qahek.cloudfront.net/images/2/books/large/HOI2.jpg',
   author: 'J. R. R. Tolkien',
-  publishedyear: 1997,
+  publishedyear: 1937,
   genre: 'Fantasy'
 }];
 
