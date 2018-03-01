@@ -19,6 +19,15 @@ const reviewSchema = mongoose.Schema({
   timestamps: true
 });
 
+reviewSchema.set('toJSON', {
+  getters: true,
+  virtuals: true,
+  transform(obj, json) {
+    delete json._id;
+    delete json.__v;
+  }
+});
+
 // reviewSchema.methods.belongsTo = function reviewBelongsTo(user) {
 //   return this.createdBy.id === user.id;
 // };

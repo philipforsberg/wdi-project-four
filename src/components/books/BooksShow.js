@@ -19,7 +19,6 @@ class BooksShow extends React.Component {
 
 
   render() {
-    console.log(this.state.book.reviews);
     return (
       <div className="row">
         <div className="showpage col-md-6">
@@ -32,13 +31,13 @@ class BooksShow extends React.Component {
           <h4>First Published: {this.state.book.publishedyear}</h4>
           <h4>{this.state.book.genre}</h4>
         </div>
-        <div className="col-md-12 is-multiline">
+        <div className="row">
           {this.state.book.reviews.map(review => {
             return(
-              <div key={review._id} className="col-md-5">
+              <div key={review.id} className="col-md-6">
                 <h3><strong>{review.description}</strong></h3>
                 <p>{review.content}</p>
-                <p><em>Written by: {review.createdBy}</em></p>
+                <p><em>Written by: {review.createdBy.username}</em></p>
               </div>
             );
           })}
