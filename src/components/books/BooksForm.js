@@ -2,8 +2,6 @@ import React from 'react';
 
 
 function BooksForm({ handleSubmit, handleChange, book }) {
-
-
   return (
     <div className="row">
       <form onSubmit={handleSubmit} className="col-md-6">

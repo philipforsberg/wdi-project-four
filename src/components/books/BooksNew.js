@@ -24,7 +24,6 @@ class BooksNew extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
     Axios
       .post('/api/books', this.state.book, { headers: { 'Authorization': `Bearer ${Auth.getToken()}`} })
       .then(() => this.props.history.push('/'))

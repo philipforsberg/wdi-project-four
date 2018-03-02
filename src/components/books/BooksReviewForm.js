@@ -1,31 +1,49 @@
 import React from 'react';
 
-const BooksReviewForm = ({ handleChange, handleSubmit, user }) => {
-  return(
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          value={user.email}
-          className="form-control"
-        />
-      </div>
-      <div className="form-group">
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-          value={user.password}
-          className="form-control"
-        />
-      </div>
-      <button className="btn-primary btn">Login</button>
-    </form>
+
+function BooksReviewForm({  }) {
+  return (
+    <div className="row">
+      <form className="col-md-6">
+        <div className="form-group">
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            className="form-control"
+            id="description"
+            name="description"
+            // value={review.description}
+            // onChange={}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="content">Content</label>
+          <input
+            type="text"
+            className="form-control"
+            id="content"
+            name="content"
+            // value={review.content}
+            // onChange={}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="bookrating">Bookrating</label>
+          <input
+            type="number"
+            className="form-control"
+            id="bookrating"
+            name="bookrating"
+            // value={review.bookrating}
+            // onChange={}
+          />
+        </div>
+        <div>
+          <button className="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
   );
-};
+}
 
 export default BooksReviewForm;
