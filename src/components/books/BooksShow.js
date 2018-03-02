@@ -12,7 +12,7 @@ class BooksShow extends React.Component {
       reviews: []
     }
   }
-
+  //
   // handleChange = ({ target: { name, value } }) => {
   //   const book = Object.assign({}, this.state.book, { [name]: value });
   //   // const errors = Object.assign({}, this.state.errors, { [name]: '' });
@@ -22,10 +22,24 @@ class BooksShow extends React.Component {
   // handleSubmit = (e) => {
   //   e.preventDefault();
   //   Axios
-  //     .post('/api/books', this.state.book, { headers: { 'Authorization': `Bearer ${Auth.getToken()}`} })
-  //     .then(() => this.props.history.push('/'))
+  //     .post('/api/books/', this.state.book, { headers: { 'Authorization': `Bearer ${Auth.getToken()}`} })
+  //     .then(() => this.props.history.push('/books/:id'))
   //     .catch(err => console.log(err));
   // }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    Axios
+      .post(`/api/books/${this.state.book.id}/reviews`, this.state.newReview,
+        {
+          headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
+        })
+      .then((res) => {
+        const book = Object.assign({}, this.state.book, { reviews: res.data.reviews });
+        this.setState({ book, newReview: { content: '' } });
+      })
+      .catch(err => this.setState({ errors: err.response.data.errors }));
+  }
 
   componentDidMount() {
     Axios
@@ -48,7 +62,12 @@ class BooksShow extends React.Component {
               </Panel.Heading>
               <Panel.Collapse>
                 <Panel.Body>
-                  <BooksReviewForm />
+                  <BooksReviewForm
+                    history={this.props.history}
+                    handleSubmit={this.handleSubmit}
+                    handleChange={this.handleChange}
+                    book={this.state.book}
+                  />
                 </Panel.Body>
               </Panel.Collapse>
             </Panel>
@@ -73,7 +92,7 @@ class BooksShow extends React.Component {
             );
           })}
         </div>
-        <div>
+        {/* <div>
           <Panel>
             <Panel.Heading>
               <Panel.Title toggle>
@@ -90,7 +109,7 @@ class BooksShow extends React.Component {
               </Panel.Body>
             </Panel.Collapse>
           </Panel>
-        </div>
+        </div> */}
       </div>
     );
   }

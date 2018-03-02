@@ -29,6 +29,25 @@ function booksShow(req, res, next) {
     .catch(next);
 }
 
+function createCommentRoute(req, res, next) {
+  req.body.createdBy = req.user;
+
+  Book
+    .findById(req.params.id)
+    .exec()
+    .then((list) => {
+      if(!list) return res.notFound();
+
+      list.comments.push(req.body);
+      return list.save();
+    })
+    .then((list) => {
+      res.redirect(`/lists/${list.id}`);
+    })
+    .catch(next);
+}
+
+
 module.exports = {
   index: booksIndex,
   create: booksCreate,

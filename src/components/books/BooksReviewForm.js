@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-function BooksReviewForm({  }) {
+function BooksReviewForm({ handleSubmit, handleChange, book }) {
   return (
     <div className="row">
-      <form className="col-md-6">
+      <form onSubmit={handleSubmit} className="col-md-6">
         <div className="form-group">
           <label htmlFor="description">Description</label>
           <input
@@ -12,8 +12,8 @@ function BooksReviewForm({  }) {
             className="form-control"
             id="description"
             name="description"
-            // value={review.description}
-            // onChange={}
+            value={book.reviews.description}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
@@ -23,8 +23,8 @@ function BooksReviewForm({  }) {
             className="form-control"
             id="content"
             name="content"
-            // value={review.content}
-            // onChange={}
+            value={book.reviews.content}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
@@ -34,8 +34,8 @@ function BooksReviewForm({  }) {
             className="form-control"
             id="bookrating"
             name="bookrating"
-            // value={review.bookrating}
-            // onChange={}
+            value={book.reviews.bookrating}
+            onChange={handleChange}
           />
         </div>
         <div>
