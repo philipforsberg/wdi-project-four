@@ -29,20 +29,20 @@ function booksShow(req, res, next) {
     .catch(next);
 }
 
-function createCommentRoute(req, res, next) {
+function booksCreateReview(req, res, next) {
   req.body.createdBy = req.user;
 
   Book
     .findById(req.params.id)
     .exec()
-    .then((list) => {
-      if(!list) return res.notFound();
+    .then((book) => {
+      if(!book) return res.notFound();
 
-      list.comments.push(req.body);
-      return list.save();
+      book.comments.push(req.body);
+      return book.save();
     })
-    .then((list) => {
-      res.redirect(`/lists/${list.id}`);
+    .then((book) => {
+      res.redirect(`/books/${book.id}`);
     })
     .catch(next);
 }
@@ -51,5 +51,6 @@ function createCommentRoute(req, res, next) {
 module.exports = {
   index: booksIndex,
   create: booksCreate,
-  show: booksShow
+  show: booksShow,
+  createReview: booksCreateReview
 };
