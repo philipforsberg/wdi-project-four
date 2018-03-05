@@ -9,8 +9,20 @@ class BooksReviewEdit extends React.Component {
   state = {
     review: {
       description: '',
-
+      content: '',
+      bookrating: 1
     }
+  };
+
+  render() {
+    return (
+      <BooksReviewEdit
+        history={this.props.history}
+        handleSubmit={this.handleSubmit}
+        handleChange={this.handleChange}
+        book={this.state.book}
+      />
+    );
   }
 }
 
