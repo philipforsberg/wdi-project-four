@@ -21,7 +21,7 @@ function booksCreate(req, res, next) {
 function booksShow(req, res, next) {
   Book
     .findById(req.params.id)
-    .populate('revieww.createdBy')
+    .populate('reviews.createdBy')
     .exec()
     .then((book) => {
       if(!book) return res.notFound();

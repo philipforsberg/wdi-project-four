@@ -14,7 +14,7 @@ class BooksShow extends React.Component {
     newReview: {
       description: '',
       content: '',
-      bookrating: ''
+      bookrating: 1
     }
   }
 
@@ -58,6 +58,13 @@ class BooksShow extends React.Component {
             <h4>First Published: {this.state.book.publishedyear}</h4>
             <h4>Genre: {this.state.book.genre}</h4>
             <h5>Average rating: </h5>
+            {this.state.book.reviews.map(review => {
+              return(
+                <div key={review.id} className="col-md-1">
+                  <p><strong>{review.bookrating}</strong></p>
+                </div>
+              );
+            })}
           </div>
           <div className="showpage col-md-6">
             <img src={this.state.book.image} className="img-responsive" />
