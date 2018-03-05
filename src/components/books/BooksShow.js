@@ -62,8 +62,8 @@ class BooksShow extends React.Component {
               return sum + review.bookrating;
             }, 0) / this.state.book.reviews.length}
           </div>
-          <div className="image-box col-md-6 col-sm-6">
-            <img src={this.state.book.image} className="img-responsive" />
+          <div className="image-box col-md-6 col-sm-6 col-xs-8">
+            <div className="back-image" style={{backgroundImage: `url('${this.state.book.image}')`}}></div>
             <Panel id="collapsible-panel-example-3">
               <Panel.Heading>
                 <Panel.Title>Have you read this book?</Panel.Title>

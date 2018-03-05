@@ -21,7 +21,7 @@ class BooksIndex extends React.Component {
             return(
               <div key={book.id} className="image-box col-xs-12 col-sm-6 col-md-4">
                 <Link to={`/books/${book.id}`}>
-                  <img src={book.image} className="img-responsive" />
+                  <div className="back-image" style={{backgroundImage: `url('${book.image}')`}}></div>
                 </Link>
                 <p><strong>{book.title}</strong>, <em>written by {book.author}</em></p>
               </div>
