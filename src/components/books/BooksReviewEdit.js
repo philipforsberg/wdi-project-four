@@ -43,15 +43,26 @@ class BooksReviewEdit extends React.Component {
     // .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
+  deleteReview = () => {
+    Axios
+      .delete(`/api/books/${this.props.match.params.id}/reviews/${this.props.match.params.reviewId}`, { headers: { 'Authorization': `Bearer ${Auth.getToken()}` }})
+      .then(() => this.props.history.push(`/books/${this.props.match.params.id}`))
+      .catch(err => console.log(err));
+  }
 
   render() {
     return (
-      <BooksReviewForm
-        history={this.props.history}
-        handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
-        review={this.state.review}
-      />
+      <div>
+        <BooksReviewForm
+          history={this.props.history}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          review={this.state.review}
+        />
+        { Auth.isAuthenticated() && <button className="btn btn-danger" onClick={this.deleteReview}>
+          Delete
+        </button> }
+      </div>
     );
   }
 }

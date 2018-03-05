@@ -16,7 +16,9 @@ router.route('/books/:id/reviews')
 
 router.route('/books/:id/reviews/:reviewId')
   .get(secureRoute, books.showReview)
-  .put(secureRoute, books.updateReview);
+  .put(secureRoute, books.updateReview)
+  .delete(secureRoute, books.deleteReview);
+
 
 router.route('/register')
   .post(auth.register);
