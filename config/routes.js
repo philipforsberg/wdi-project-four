@@ -12,7 +12,7 @@ router.route('/books/:id')
   .get(books.show);
 
 router.route('/books/:id/reviews')
-  .post(books.createReview);
+  .post(secureRoute, books.createReview);
 
 router.route('/register')
   .post(auth.register);

@@ -18,7 +18,11 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <header>
-            <h1><Link to="/">Book World</Link></h1>
+            <div className="jumbotron jumbotron-fluid">
+              <div className="container-fluid">
+                <h1 className="display-3"><Link to="/">Book World</Link></h1>
+              </div>
+            </div>
             <Navbar />
           </header>
           <main>

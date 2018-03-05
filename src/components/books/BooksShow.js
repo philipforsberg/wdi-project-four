@@ -11,14 +11,14 @@ class BooksShow extends React.Component {
     book: {
       reviews: []
     },
-    newReview: {}
+    newReview: {
+      content: ''
+    }
   }
 
-  // handleChange = ({ target: { name, value } }) => {
-  //   const book = Object.assign({}, this.state.book, { [name]: value });
-  //   // const errors = Object.assign({}, this.state.errors, { [name]: '' });
-  //   this.setState({ book });
-  // }
+  handleChange = ({ target: { value } }) => {
+    this.setState({ newReview: { content: value} });
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -56,7 +56,7 @@ class BooksShow extends React.Component {
           </div>
           <div className="showpage col-md-6">
             <img src={this.state.book.image} className="img-responsive" />
-            <Panel id="collapsible-panel-example-3" defaultExpanded>
+            <Panel id="collapsible-panel-example-3">
               <Panel.Heading>
                 <Panel.Title>Have you read this book?</Panel.Title>
                 <Panel.Toggle componentClass="a">Leave a review to tell others what you think!</Panel.Toggle>
