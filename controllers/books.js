@@ -1,5 +1,4 @@
 const Book = require('../models/book');
-// const User = require('../models/user');
 
 function booksIndex(req, res, next) {
   Book
@@ -72,9 +71,6 @@ function booksCreateReview(req, res, next) {
     .then(book => res.json(book))
     .catch(next);
 }
-
-// review = Object.assign(review, req.body);
-// .then(book => res.json(book))
 
 
 function booksDeleteReview(req, res, next) {
