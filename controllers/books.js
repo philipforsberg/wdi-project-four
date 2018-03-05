@@ -38,7 +38,7 @@ function booksCreateReview(req, res, next) {
     .then((book) => {
       if(!book) return res.notFound();
 
-      book.comments.push(req.body);
+      book.reviews.push(req.body);
       return book.save();
     })
     .then((book) => {

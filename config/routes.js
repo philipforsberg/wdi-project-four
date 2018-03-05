@@ -11,7 +11,7 @@ router.route('/books')
 router.route('/books/:id')
   .get(books.show);
 
-router.route('/books/:id/comments')
+router.route('/books/:id/reviews')
   .post(books.createReview);
 
 router.route('/register')

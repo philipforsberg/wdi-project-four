@@ -4,7 +4,7 @@ import React from 'react';
 function BooksReviewForm({ handleSubmit, handleChange, book }) {
   return (
     <div className="row">
-      <form onSubmit={handleSubmit} className="col-md-6">
+      <form onSubmit={handleSubmit} className="col-md-12">
         <div className="form-group">
           <label htmlFor="description">Description</label>
           <input
@@ -18,19 +18,21 @@ function BooksReviewForm({ handleSubmit, handleChange, book }) {
         </div>
         <div className="form-group">
           <label htmlFor="content">Content</label>
-          <input
-            type="text"
+          <textarea
+            rows="6"
             className="form-control"
             id="content"
             name="content"
             value={book.reviews.content}
             onChange={handleChange}
-          />
+          ></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="bookrating">Bookrating</label>
           <input
             type="number"
+            min="1"
+            max="5"
             className="form-control"
             id="bookrating"
             name="bookrating"

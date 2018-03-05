@@ -10,21 +10,14 @@ class BooksShow extends React.Component {
   state = {
     book: {
       reviews: []
-    }
+    },
+    newReview: {}
   }
-  //
+
   // handleChange = ({ target: { name, value } }) => {
   //   const book = Object.assign({}, this.state.book, { [name]: value });
   //   // const errors = Object.assign({}, this.state.errors, { [name]: '' });
   //   this.setState({ book });
-  // }
-  //
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   Axios
-  //     .post('/api/books/', this.state.book, { headers: { 'Authorization': `Bearer ${Auth.getToken()}`} })
-  //     .then(() => this.props.history.push('/books/:id'))
-  //     .catch(err => console.log(err));
   // }
 
   handleSubmit = e => {
@@ -38,7 +31,8 @@ class BooksShow extends React.Component {
         const book = Object.assign({}, this.state.book, { reviews: res.data.reviews });
         this.setState({ book, newReview: { content: '' } });
       })
-      .catch(err => this.setState({ errors: err.response.data.errors }));
+      .catch(err => console.log(err));
+    // .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
   componentDidMount() {
@@ -53,6 +47,13 @@ class BooksShow extends React.Component {
     return (
       <div className="row">
         <div className="row">
+          <div className="info-box col-md-6">
+            <h2><strong>{this.state.book.title}</strong></h2>
+            <h3><em>Written by {this.state.book.author}</em></h3>
+            <h4>First Published: {this.state.book.publishedyear}</h4>
+            <h4>Genre: {this.state.book.genre}</h4>
+            <h5>Average rating: </h5>
+          </div>
           <div className="showpage col-md-6">
             <img src={this.state.book.image} className="img-responsive" />
             <Panel id="collapsible-panel-example-3" defaultExpanded>
@@ -72,13 +73,6 @@ class BooksShow extends React.Component {
               </Panel.Collapse>
             </Panel>
           </div>
-          <div className="col-md-6">
-            <h2><strong>{this.state.book.title}</strong></h2>
-            <h3><em>Written by {this.state.book.author}</em></h3>
-            <h4>First Published: {this.state.book.publishedyear}</h4>
-            <h4>Genre: {this.state.book.genre}</h4>
-            <h5>Average rating from our reviewers: </h5>
-          </div>
         </div>
         <div className="row">
           {this.state.book.reviews.map(review => {
@@ -92,24 +86,6 @@ class BooksShow extends React.Component {
             );
           })}
         </div>
-        {/* <div>
-          <Panel>
-            <Panel.Heading>
-              <Panel.Title toggle>
-                Title that functions as a collapse toggle
-              </Panel.Title>
-            </Panel.Heading>
-
-            <Panel.Collapse>
-              <Panel.Body>
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. Nihil anim keffiyeh
-                helvetica, craft beer labore wes anderson cred nesciunt sapiente
-                ea proident.
-              </Panel.Body>
-            </Panel.Collapse>
-          </Panel>
-        </div> */}
       </div>
     );
   }

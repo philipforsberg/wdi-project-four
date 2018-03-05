@@ -4,7 +4,7 @@ import React from 'react';
 function BooksForm({ handleSubmit, handleChange, book }) {
   return (
     <div className="row">
-      <form onSubmit={handleSubmit} className="col-md-6">
+      <form onSubmit={handleSubmit} className="col-md-8">
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input
@@ -35,6 +35,17 @@ function BooksForm({ handleSubmit, handleChange, book }) {
             id="author"
             name="author"
             value={book.author}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="publishedyear">Year Published</label>
+          <input
+            type="number"
+            className="form-control"
+            id="publishedyear"
+            name="publishedyear"
+            value={book.publishedyear}
             onChange={handleChange}
           />
         </div>
