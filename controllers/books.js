@@ -36,7 +36,6 @@ function booksCreateReview(req, res, next) {
 
   Book
     .findById(req.params.id)
-    .populate('reviews.createdBy')
     .exec()
     .then((book) => {
       if(!book) return res.notFound();
@@ -45,9 +44,7 @@ function booksCreateReview(req, res, next) {
       book.reviews.push(review);
       return book.save();
     })
-    .then((book) => {
-      res.redirect(`/books/${book.id}`);
-    })
+    .then(book => res.json(book))
     .catch(next);
 }
 
