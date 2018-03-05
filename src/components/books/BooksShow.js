@@ -12,7 +12,9 @@ class BooksShow extends React.Component {
       reviews: []
     },
     newReview: {
-      content: ''
+      // description: '',
+      // content: '',
+      // bookrating: 1
     }
   }
 
@@ -22,6 +24,7 @@ class BooksShow extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log(this.state);
     Axios
       .post(`/api/books/${this.state.book.id}/reviews`, this.state.newReview,
         {
@@ -67,7 +70,7 @@ class BooksShow extends React.Component {
                     history={this.props.history}
                     handleSubmit={this.handleSubmit}
                     handleChange={this.handleChange}
-                    book={this.state.book}
+                    newReview={this.state.newReview}
                   />
                 </Panel.Body>
               </Panel.Collapse>

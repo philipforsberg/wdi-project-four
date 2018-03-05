@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function BooksReviewForm({ handleSubmit, handleChange, book }) {
+function BooksReviewForm({ handleSubmit, handleChange, newReview }) {
   return (
     <div className="row">
       <form onSubmit={handleSubmit} className="col-md-12">
@@ -12,7 +12,7 @@ function BooksReviewForm({ handleSubmit, handleChange, book }) {
             className="form-control"
             id="description"
             name="description"
-            value={book.reviews.description}
+            value={newReview.description}
             onChange={handleChange}
           />
         </div>
@@ -23,12 +23,12 @@ function BooksReviewForm({ handleSubmit, handleChange, book }) {
             className="form-control"
             id="content"
             name="content"
-            value={book.reviews.content}
+            value={newReview.content}
             onChange={handleChange}
           ></textarea>
         </div>
         <div className="form-group">
-          <label htmlFor="bookrating">Bookrating</label>
+          <label htmlFor="bookrating">Bookrating(1-5)</label>
           <input
             type="number"
             min="1"
@@ -36,7 +36,7 @@ function BooksReviewForm({ handleSubmit, handleChange, book }) {
             className="form-control"
             id="bookrating"
             name="bookrating"
-            value={book.reviews.bookrating}
+            value={newReview.bookrating}
             onChange={handleChange}
           />
         </div>

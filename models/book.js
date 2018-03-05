@@ -13,8 +13,8 @@ const mongoose = require('mongoose');
 
 const reviewSchema = mongoose.Schema({
   description: { type: String, required: true },
-  bookrating: { type: Number, required: true },
   content: { type: String, required: true },
+  bookrating: { type: Number, required: true },
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 }, {
   timestamps: true
