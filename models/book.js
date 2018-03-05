@@ -29,9 +29,9 @@ reviewSchema.set('toJSON', {
   }
 });
 
-// reviewSchema.methods.belongsTo = function reviewBelongsTo(user) {
-//   return this.createdBy.id === user.id;
-// };
+reviewSchema.methods.belongsTo = function reviewBelongsTo(user) {
+  return this.createdBy.id === user.id;
+};
 
 const bookSchema = mongoose.Schema({
   title: { type: String, required: true },

@@ -12,14 +12,15 @@ class BooksShow extends React.Component {
       reviews: []
     },
     newReview: {
-      // description: '',
-      // content: '',
-      // bookrating: 1
+      description: '',
+      content: '',
+      bookrating: ''
     }
   }
 
-  handleChange = ({ target: { value } }) => {
-    this.setState({ newReview: { content: value} });
+  handleChange = ({ target: { name, value } }) => {
+    const newReview = Object.assign({}, this.state.newReview, { [name]: value });
+    this.setState({ newReview });
   }
 
   handleSubmit = e => {
@@ -31,6 +32,7 @@ class BooksShow extends React.Component {
           headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
         })
       .then((res) => {
+        console.log(res);
         const book = Object.assign({}, this.state.book, { reviews: res.data.reviews });
         this.setState({ book, newReview: { content: '' } });
       })

@@ -1,4 +1,5 @@
 const Book = require('../models/book');
+// const User = require('../models/user');
 
 function booksIndex(req, res, next) {
   Book
@@ -20,7 +21,7 @@ function booksCreate(req, res, next) {
 function booksShow(req, res, next) {
   Book
     .findById(req.params.id)
-    .populate('reviews.createdBy')
+    .populate('revieww.createdBy')
     .exec()
     .then((book) => {
       if(!book) return res.notFound();
@@ -30,15 +31,18 @@ function booksShow(req, res, next) {
 }
 
 function booksCreateReview(req, res, next) {
-  req.body.createdBy = req.user;
+  req.body.createdBy = req.currentUser;
+  console.log(req.body);
 
   Book
     .findById(req.params.id)
+    .populate('reviews.createdBy')
     .exec()
     .then((book) => {
       if(!book) return res.notFound();
 
-      book.reviews.push(req.body);
+      const review = book.reviews.create(req.body);
+      book.reviews.push(review);
       return book.save();
     })
     .then((book) => {
