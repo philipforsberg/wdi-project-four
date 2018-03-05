@@ -28,8 +28,9 @@ function BooksReviewForm({ handleSubmit, handleChange, newReview }) {
           ></textarea>
         </div>
         <div className="form-group">
-          <label htmlFor="bookrating">Bookrating(1-5)</label>
-          <input
+          <label htmlFor="bookrating">Bookrating(1-5) :</label>
+          {' '}
+          {/* <input
             type="number"
             min="1"
             max="5"
@@ -38,7 +39,21 @@ function BooksReviewForm({ handleSubmit, handleChange, newReview }) {
             name="bookrating"
             value={newReview.bookrating}
             onChange={handleChange}
-          />
+          /> */}
+          <select
+            className="custom-select"
+            id="bookrating"
+            name="bookrating"
+            value={newReview.bookrating}
+            onChange={handleChange}
+          >
+            <option defaultValue>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+          </select>
         </div>
         <div>
           <button className="btn btn-primary">Save</button>

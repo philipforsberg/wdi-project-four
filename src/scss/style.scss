@@ -12,14 +12,27 @@
   width: 100vw;
   left: calc(-50vw + 50%);
   text-align: center;
-  background: #EB5757;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to top, #EB5757, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to top, #EB5757, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #556270;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #FF6B6B, #556270);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #FF6B6B, #556270); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
-//
-// nav {
-//   background-color: #EB5757;
-// }
+
+header {
+  background-color: #FF6B6B;
+  position: relative;
+  width: 100vw;
+  left: calc(-50vw + 50%);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  nav {
+    text-align: center;
+    justify-content: space-around;
+  }
+}
 
 .info-box {
   text-align: center;

@@ -32,7 +32,6 @@ function booksShow(req, res, next) {
 
 function booksCreateReview(req, res, next) {
   req.body.createdBy = req.currentUser;
-  console.log(req.body);
 
   Book
     .findById(req.params.id)

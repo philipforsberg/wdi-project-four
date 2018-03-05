@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Panel } from 'react-bootstrap';
 
 import Auth from '../../lib/Auth';
@@ -14,7 +14,7 @@ class BooksShow extends React.Component {
     newReview: {
       description: '',
       content: '',
-      bookrating: 1
+      bookrating: ''
     }
   }
 
@@ -25,14 +25,14 @@ class BooksShow extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
     Axios
       .post(`/api/books/${this.state.book.id}/reviews`, this.state.newReview,
         {
           headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
         })
       .then((res) => {
-        console.log(res);
+        console.log(res.data.reviews);
+        console.log();
         const book = Object.assign({}, this.state.book, { reviews: res.data.reviews });
         this.setState({ book, newReview: { content: '' } });
       })
@@ -58,13 +58,9 @@ class BooksShow extends React.Component {
             <h4>First Published: {this.state.book.publishedyear}</h4>
             <h4>Genre: {this.state.book.genre}</h4>
             <h5>Average rating: </h5>
-            {this.state.book.reviews.map(review => {
-              return(
-                <div key={review.id} className="col-md-1">
-                  <p><strong>{review.bookrating}</strong></p>
-                </div>
-              );
-            })}
+            {this.state.book.reviews.reduce((sum, review) => {
+              return sum + review.bookrating;
+            }, 0) / this.state.book.reviews.length}
           </div>
           <div className="showpage col-md-6">
             <img src={this.state.book.image} className="img-responsive" />
@@ -90,10 +86,11 @@ class BooksShow extends React.Component {
           {this.state.book.reviews.map(review => {
             return(
               <div key={review.id} className="col-md-6">
-                <h3><strong>{review.description}</strong>, <em>Written by: {review.createdBy.username}</em></h3>
+                <h3><strong>{review.description}</strong></h3>
+                { Auth.isAuthenticated() && review.createdBy.id === Auth.getPayload().userId  && <Link to="/books/new" className="btn btn-warning">Edit/Delete</Link>}
                 <h4><strong>Rating: {review.bookrating} out of 5</strong></h4>
                 <p>{review.content}</p>
-                <p><em>Written by: {review.createdBy.username}</em></p>
+                <h5><em>Written by: {review.createdBy.username}</em></h5>
               </div>
             );
           })}
