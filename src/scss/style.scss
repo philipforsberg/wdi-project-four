@@ -51,11 +51,14 @@ header {
   }
 }
 
-.showpage {
+.image-box {
   margin: 25px auto 10px auto;
-  text-align: center;
-  justify-content: center;
-  // img {
-  //
-  // }
+  // text-align: center;
+  // justify-content: center;
+  img {
+    max-height: 430px;
+    width: 100%;
+    padding: 4px;
+    background: #fafafa;
+  }
 }

@@ -14,6 +14,10 @@ router.route('/books/:id')
 router.route('/books/:id/reviews')
   .post(secureRoute, books.createReview);
 
+router.route('/books/:id/reviews/:reviewId')
+  .get(secureRoute, books.showReview)
+  .put(secureRoute, books.updateReview);
+
 router.route('/register')
   .post(auth.register);
 

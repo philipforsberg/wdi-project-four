@@ -30,6 +30,32 @@ function booksShow(req, res, next) {
     .catch(next);
 }
 
+function booksShowReview(req, res, next) {
+  Book
+    .findById(req.params.id)
+    .exec()
+    .then((book) => {
+      if(!book) return res.notFound();
+      const review = book.reviews.id(req.params.reviewId);
+      res.json(review);
+    })
+    .catch(next);
+}
+
+function booksUpdateReview(req, res, next) {
+  Book
+    .findById(req.params.id)
+    .exec()
+    .then((book) => {
+      if(!book) return res.notFound();
+      let review = book.reviews.id(req.params.reviewId);
+      review = Object.assign(review, req.body);
+      return book.save();
+    })
+    .then(book => res.json(book))
+    .catch(next);
+}
+
 function booksCreateReview(req, res, next) {
   req.body.createdBy = req.currentUser;
 
@@ -52,5 +78,7 @@ module.exports = {
   index: booksIndex,
   create: booksCreate,
   show: booksShow,
-  createReview: booksCreateReview
+  createReview: booksCreateReview,
+  showReview: booksShowReview,
+  updateReview: booksUpdateReview
 };

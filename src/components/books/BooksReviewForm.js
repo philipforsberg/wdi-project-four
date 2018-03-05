@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function BooksReviewForm({ handleSubmit, handleChange, newReview }) {
+function BooksReviewForm({ handleSubmit, handleChange, review }) {
   return (
     <div className="row">
       <form onSubmit={handleSubmit} className="col-md-12">
@@ -12,7 +12,7 @@ function BooksReviewForm({ handleSubmit, handleChange, newReview }) {
             className="form-control"
             id="description"
             name="description"
-            value={newReview.description}
+            value={review.description}
             onChange={handleChange}
           />
         </div>
@@ -23,7 +23,7 @@ function BooksReviewForm({ handleSubmit, handleChange, newReview }) {
             className="form-control"
             id="content"
             name="content"
-            value={newReview.content}
+            value={review.content}
             onChange={handleChange}
           ></textarea>
         </div>
@@ -37,14 +37,14 @@ function BooksReviewForm({ handleSubmit, handleChange, newReview }) {
             className="form-control"
             id="bookrating"
             name="bookrating"
-            value={newReview.bookrating}
+            value={review.bookrating}
             onChange={handleChange}
           /> */}
           <select
             className="custom-select"
             id="bookrating"
             name="bookrating"
-            value={newReview.bookrating}
+            value={review.bookrating}
             onChange={handleChange}
           >
             <option defaultValue>Open this select menu</option>

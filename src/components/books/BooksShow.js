@@ -11,7 +11,7 @@ class BooksShow extends React.Component {
     book: {
       reviews: []
     },
-    newReview: {
+    review: {
       description: '',
       content: '',
       bookrating: ''
@@ -19,14 +19,14 @@ class BooksShow extends React.Component {
   }
 
   handleChange = ({ target: { name, value } }) => {
-    const newReview = Object.assign({}, this.state.newReview, { [name]: value });
-    this.setState({ newReview });
+    const review = Object.assign({}, this.state.review, { [name]: value });
+    this.setState({ review });
   }
 
   handleSubmit = e => {
     e.preventDefault();
     Axios
-      .post(`/api/books/${this.state.book.id}/reviews`, this.state.newReview,
+      .post(`/api/books/${this.state.book.id}/reviews`, this.state.review,
         {
           headers: { 'Authorization': `Bearer ${Auth.getToken()}`}
         })
@@ -34,7 +34,7 @@ class BooksShow extends React.Component {
         console.log(res.data.reviews);
         console.log();
         const book = Object.assign({}, this.state.book, { reviews: res.data.reviews });
-        this.setState({ book, newReview: { content: '' } });
+        this.setState({ book, review: { content: '' } });
       })
       .catch(err => console.log(err));
     // .catch(err => this.setState({ errors: err.response.data.errors }));
@@ -52,7 +52,7 @@ class BooksShow extends React.Component {
     return (
       <div className="row">
         <div className="row">
-          <div className="info-box col-md-6">
+          <div className="info-box col-md-6 col-sm-6">
             <h2><strong>{this.state.book.title}</strong></h2>
             <h3><em>Written by {this.state.book.author}</em></h3>
             <h4>First Published: {this.state.book.publishedyear}</h4>
@@ -62,7 +62,7 @@ class BooksShow extends React.Component {
               return sum + review.bookrating;
             }, 0) / this.state.book.reviews.length}
           </div>
-          <div className="showpage col-md-6">
+          <div className="image-box col-md-6 col-sm-6">
             <img src={this.state.book.image} className="img-responsive" />
             <Panel id="collapsible-panel-example-3">
               <Panel.Heading>
@@ -75,7 +75,7 @@ class BooksShow extends React.Component {
                     history={this.props.history}
                     handleSubmit={this.handleSubmit}
                     handleChange={this.handleChange}
-                    newReview={this.state.newReview}
+                    review={this.state.review}
                   />
                 </Panel.Body>
               </Panel.Collapse>
@@ -87,7 +87,7 @@ class BooksShow extends React.Component {
             return(
               <div key={review.id} className="col-md-6">
                 <h3><strong>{review.description}</strong></h3>
-                { Auth.isAuthenticated() && review.createdBy.id === Auth.getPayload().userId  && <Link to="/books/new" className="btn btn-warning">Edit/Delete</Link>}
+                { Auth.isAuthenticated() && review.createdBy.id === Auth.getPayload().userId  && <Link to={'/books/'+ this.props.match.params.id + '/reviews/' + review.id} className="btn btn-warning">Edit/Delete</Link>}
                 <h4><strong>Rating: {review.bookrating} out of 5</strong></h4>
                 <p>{review.content}</p>
                 <h5><em>Written by: {review.createdBy.username}</em></h5>
