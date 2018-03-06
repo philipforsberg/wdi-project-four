@@ -40,7 +40,8 @@ User
       reviews: [{
         description: 'To Kill a Mockingbird will never stop being a good book',
         content: 'The book is about Atticus Finch, who appears as an unconventional hero and role model due to his morality rather than his physical capabilities. The theme of morals is apparent throughout the whole novel, especially in relation to religion and perception of sin. Take Mrs Dubose, a recovering morphine addict: she vows that she will die beholden to nothing and nobody. She is pursuing her own dream of being a free human being because she knows deep down that it is right.',
-        bookrating: 5
+        bookrating: 5,
+        createdBy: users[0]
       }]
     }, {
       title: 'Charlie and the Chocolate Factory',
@@ -51,7 +52,8 @@ User
       reviews: [{
         description: 'Do you like chocolate? Mr. Willy Wonka sure does',
         content: 'Charlie, a small boy living in a run-down house with his whole family, gets a single chocolate bar for his birthday every year by his grandfather. Only this time, he is lucky enough to get one of the golden tickets, granting him access to Willy Wonkas chocolate factory. From there on out, you are just joining Charlies journey, to go further into Wonkas mysterious world of sweets!',
-        bookrating: 4
+        bookrating: 4,
+        createdBy: users[2]
       }]
     }, {
       title: 'The Hobbit',
