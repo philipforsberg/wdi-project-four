@@ -50,7 +50,7 @@ class BooksShow extends React.Component {
 
   render() {
     return (
-      <div className="row">
+      <div className="container">
         <div className="row">
           <div className="info-box col-md-6 col-sm-6">
             <h2><strong>{this.state.book.title}</strong></h2>
@@ -58,11 +58,11 @@ class BooksShow extends React.Component {
             <h4>First Published: {this.state.book.publishedyear}</h4>
             <h4>Genre: {this.state.book.genre}</h4>
             <h5>Average rating: </h5>
-            {this.state.book.reviews.reduce((sum, review) => {
+            {(this.state.book.reviews.reduce((sum, review) => {
               return sum + review.bookrating;
-            }, 0) / this.state.book.reviews.length}
+            }, 0) / this.state.book.reviews.length).toFixed(1)}
           </div>
-          <div className="image-box col-md-6 col-sm-6 col-xs-8">
+          <div className="index-box col-md-6 col-sm-6 col-xs-8">
             <div className="back-image" style={{backgroundImage: `url('${this.state.book.image}')`}}></div>
             <Panel id="collapsible-panel-example-3">
               <Panel.Heading>
@@ -87,10 +87,10 @@ class BooksShow extends React.Component {
             return(
               <div key={review.id} className="col-md-6">
                 <h3><strong>{review.description}</strong></h3>
-                { Auth.isAuthenticated() && review.createdBy.id === Auth.getPayload().userId  && <Link to={'/books/'+ this.props.match.params.id + '/reviews/' + review.id} className="btn btn-warning">Edit/Delete</Link>}
                 <h4><strong>Rating: {review.bookrating} out of 5</strong></h4>
                 <p>{review.content}</p>
                 <h5><em>Written by: {review.createdBy.username}</em></h5>
+                { Auth.isAuthenticated() && review.createdBy.id === Auth.getPayload().userId  && <Link to={'/books/'+ this.props.match.params.id + '/reviews/' + review.id} className="btn btn-warning edit-btn">Edit/Delete</Link>}
               </div>
             );
           })}

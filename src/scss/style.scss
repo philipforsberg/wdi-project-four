@@ -3,9 +3,9 @@
 // }
 
 main {
-  // margin: 0 auto;
+  margin: 0 auto;
   // text-align: center;
-  // justify-content: center;
+  justify-content: center;
 }
 
 .jumbotron {
@@ -38,8 +38,8 @@ header {
 }
 
 .info-box {
-  // text-align: center;
-  // margin: 50px auto 0 auto;
+  text-align: center;
+  margin: 50px auto 25px auto;
 }
 
 .book-box {
@@ -49,20 +49,23 @@ header {
 }
 
 .back-image {
+  display: inline-block;
   height: 100%;
   width: 65%;
   padding-top: 100%;
   background-position: center;
   background-size: cover;
+  justify-content: center;
+  text-align: center;
 }
 
-// .image-box {
-//   margin: 25px auto 10px auto;
-//   // text-align: center;
-//   // justify-content: center;
-//   img {
-//     max-height: 430px;
-//     width: 100%;
-//     padding: 4px;
-//   }
-// }
+.index-box {
+  margin: 25px auto 10px auto;
+  padding: 0 5px 0 5px;
+  text-align: center;
+  justify-content: center;
+}
+
+.edit-btn {
+  float: right;
+}

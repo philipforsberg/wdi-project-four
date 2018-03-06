@@ -79,15 +79,15 @@ User
       publishedyear: 1997,
       genre: 'Childrens Fantasy',
       reviews: [{
-        description: 'The wonderful story of a boy crashing into the world of wizardy',
-        content: 'J. K. Rowling has created a fantastic world of imagination, where Harry suddenly finds out he is a wizard, and we get to tag along his journey at Hogwarts School of Wizardry and Witchcraft. There is no end as to what kind of mischievious, dangerous and funny situations Harry and his friends manage to sumble into. Definitely pick up on this first out of seven books about Harry Potter, you will not regret!',
-        bookrating: 5,
-        createdBy: users[2]
-      }, {
         description: 'An intro to a world filled with magic and mysteries',
         content: 'This childrens book is definitely not only for children. As I am reading story Ms. Rowling has created for Harry Potter, I can easily let my mind drift deep into this magical world. Creative, funny and at times scary, do not miss out on this one!',
         bookrating: 5,
         createdBy: users[1]
+      }, {
+        description: 'The wonderful story of a boy crashing into the world of wizardy',
+        content: 'J. K. Rowling has created a fantastic world of imagination, where Harry suddenly finds out he is a wizard, and we get to tag along his journey at Hogwarts School of Wizardry and Witchcraft. There is no end as to what kind of mischievious, dangerous and funny situations Harry and his friends manage to sumble into. Definitely pick up on this first out of seven books about Harry Potter, you will not regret!',
+        bookrating: 5,
+        createdBy: users[2]
       }]
     }]);
   })

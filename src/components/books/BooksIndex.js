@@ -19,11 +19,13 @@ class BooksIndex extends React.Component {
         <div className="row">
           {this.state.books.map(book => {
             return(
-              <div key={book.id} className="image-box col-xs-12 col-sm-6 col-md-4">
+              <div key={book.id} className="index-box col-xs-6 col-sm-6 col-md-4">
                 <Link to={`/books/${book.id}`}>
                   <div className="back-image" style={{backgroundImage: `url('${book.image}')`}}></div>
                 </Link>
-                <p><strong>{book.title}</strong>, <em>written by {book.author}</em></p>
+                <p><strong>{book.title}</strong>,
+                  <br></br>
+                  <em>written by {book.author}</em></p>
               </div>
             );
           })}
