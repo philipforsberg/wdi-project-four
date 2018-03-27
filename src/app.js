@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import BooksRoutes from './components/books/BooksRoutes';
 import Login       from './components/auth/Login';
 import Register    from './components/auth/Register';
-import Navbar from './components/utility/Navbar';
+import Navbar from './components/utility/NavBar';
 
 import 'bootstrap-css-only';
 import 'react-bootstrap';
