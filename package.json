@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-setup",
+  "name": "project-four",
   "version": "1.0.0",
-  "description": "A React and Webpack setup for WDI",
+  "description": "My fouth project on WDI",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
