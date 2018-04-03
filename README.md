@@ -20,12 +20,12 @@ This app is online, click here to check [it out.](https://book-world-app.herokua
 ### Technologies and dependencies
 These are some of the technologies and dependencies I used for this app:
 
--	Javascript
+-	JavaScript
 - React
 - SCSS
 - Bootstrap
 - GitHub
-- bcrypt
+- Bcrypt
 - Express
 - Mongoose
 - Morgan
