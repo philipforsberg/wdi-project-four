@@ -34,7 +34,7 @@ These are some of the technologies and dependencies I used for this app:
 
 
 ### What I liked about this project
-I enjoyed that we got to learn React the week before this project-week, and being able to use it for our last project. Something I especially liked, was the way React makes you differ from the use of classical and functional components. 
+I enjoyed that we got to learn React the week before this project-week, and being able to use it for our last project. Something I especially liked, was the way React makes you differ from the use of classical and functional components.
 
 ### Challenges faced
 I only had a week to finish this project, and it started out quiet poorly, as I struggled to come up with a general idea for my project during the first day. So time management became an issue for me during this project, making me unable to finish all the features I wanted to.
