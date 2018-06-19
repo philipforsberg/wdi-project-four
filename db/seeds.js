@@ -33,7 +33,7 @@ User
 
     return Book.create([{
       title: 'To Kill a Mockingbird',
-      image: 'https://2982-presscdn-29-70-pagely.netdna-ssl.com/wp-content/uploads/2015/07/To-Kill-a-Mockingbird-1st-ed.gif',
+      image: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/79/To_Kill_a_Mockingbird.JPG/220px-To_Kill_a_Mockingbird.JPG',
       author: 'Harper Lee',
       publishedyear: 1960,
       genre: 'Southern Gothic',
